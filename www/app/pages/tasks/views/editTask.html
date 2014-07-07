@@ -1,0 +1,56 @@
+<div ng-controller="editTaskCtrl">
+    <div content-for="title">
+        <span>Alterar Tarefa</span>
+    </div>
+
+
+    <div class="scrollable">
+        <div class="scrollable-content section">
+
+            <form name="myForm">
+
+                <div bs-panel title="Tarefa">
+
+                    <input
+                            bs-form-control
+
+                            type="text"
+                            ng-model="task.Title"
+                            label=""
+                            placeholder="Título da tarefa"
+                            required
+                            />
+
+                    <switch
+                      bs-form-control
+                      ng-model="task.Done"
+                      label="Concluída"
+                      label-class="col-xs-3 col-sm-2 col-lg-1"
+                      class="col-xs-9 col-sm-10 col-lg-11"
+                      >
+                    </switch>
+
+                    <textarea type="text" ng-model="task.Obs" label="Observação" bs-form-control></textarea>
+
+                </div>
+
+                <div bs-panel class="form-actions">
+                    <div class="btn-group justified nav-tabs">
+                        <div content-for="navbarAction" duplicate>
+                            <button class="btn btn-primary" ng-disabled="isClean() || myForm.$invalid" ng-click="save()">
+                                Salvar
+                            </button>
+                        </div>
+                        <div>
+                            <button ng-click="delete()" class="btn">Excluir</button>
+                        </div>
+                        <div>
+                            <button ng-click="back()" class="btn">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
